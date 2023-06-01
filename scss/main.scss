@@ -19,6 +19,39 @@ $button-font-size: 1.2rem;
     }
 }
 
+@mixin text-style($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin container-style($margin-top: 0, $bg-color : white) {
+    width: $content-width;
+    margin-top: $margin-top;
+    background-color: $bg-color;
+}
+
+@mixin grid-3-columns() {
+    display: grid;
+    column-gap: 3rem;
+    row-gap: 3.5rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-top: 30px;
+    text-align: center;
+
+    @media (max-width:1300px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+
 body {
     background-color: white;
 }
@@ -29,8 +62,7 @@ h2 {
 }
 
 .banner {
-    width: $content-width;
-    margin: auto;
+    @include container-style();
     padding: 0 60px;
     display: flex;
     flex-direction: row;
@@ -53,19 +85,20 @@ h2 {
 
         .banner-text-content {
             h2 {
-                font-size: 1.3rem;
+
+                @include text-style(1.3rem, normal);
 
                 @media (max-width: 768px) {
-                    font-size: 1.2rem;
+                    @include text-style(1.2rem, normal);
                 }
             }
 
             p {
-                font-weight: bold;
-                font-size: 1.1rem;
+
+                @include text-style(1.1rem, bold);
 
                 @media (max-width: 768px) {
-                    font-size: 0.9rem;
+                    @include text-style(0.9rem, normal);
                 }
             }
         }
@@ -76,12 +109,11 @@ h2 {
             background: $red-gradient;
             max-width: 260px;
             height: 50px;
-            font-weight: bold;
-            font-size: $button-font-size;
+            @include text-style($button-font-size, bold);
 
             &:hover {
                 box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.37);
-                
+
             }
 
             @media (max-width: 768px) {
@@ -127,7 +159,7 @@ nav {
         color: $main-red;
         font-weight: bold;
 
-        &:hover{
+        &:hover {
             color: get-hover-color($main-red);
             box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.37);
         }
@@ -148,7 +180,7 @@ nav {
         .nav-link {
             color: $main-red;
             text-transform: uppercase;
-            font-size: 0.7rem;
+            @include text-style(0.7rem, normal);
 
             &:hover {
                 color: $hover-red;
@@ -187,10 +219,7 @@ nav {
 }
 
 #services {
-    width: $content-width;
-    margin: auto;
-    margin-top: 60px;
-    background-color: $gray-container;
+    @include container-style(60px, $gray-container);
     text-align: center;
     padding: 80px 80px;
     transform: skewY(-2deg);
@@ -204,13 +233,12 @@ nav {
     }
 
     h1 {
-        font-size: 1.6rem;
-        font-weight: bold;
+        @include text-style(1.6rem, bold);
     }
 
     p {
         width: 97%;
-        font-size: 1.1rem;
+        @include text-style(1.1rem, normal);
     }
 
 
@@ -249,9 +277,8 @@ nav {
     button {
         margin-top: 50px;
         color: $main-red;
-        font-weight: bold;
         border: none;
-        font-size: $button-font-size;
+        @include text-style($button-font-size, bold);
 
         &:hover {
             background-color: $gray-container;
@@ -261,29 +288,17 @@ nav {
 }
 
 #products {
-    width: $content-width;
-    margin: auto;
-    margin-top: 60px;
+    @include container-style(60px);
     text-align: center;
     padding: 80px 80px;
 
     h1 {
-        font-size: 1.6rem;
-        font-weight: bold;
+        @include text-style(1.6rem, bold);
     }
 
     .grid-products {
 
-        display: grid;
-        column-gap: 3rem;
-        row-gap: 3.5rem;
-        grid-auto-flow: dense;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: center;
-        justify-items: center;
-        margin-top: 30px;
-        text-align: center;
-
+       @include grid-3-columns();
 
         a {
             text-decoration: none;
@@ -295,15 +310,6 @@ nav {
                 text-decoration: underline;
             }
         }
-
-        @media (max-width:1300px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (max-width: 768px) {
-            grid-template-columns: repeat(1, 1fr);
-        }
-
     }
 }
 

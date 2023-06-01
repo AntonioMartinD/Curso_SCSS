@@ -9,7 +9,8 @@ h2 {
 
 .banner {
   width: 60%;
-  margin: auto;
+  margin-top: 0;
+  background-color: white;
   padding: 0 60px;
   display: flex;
   flex-direction: row;
@@ -31,19 +32,22 @@ h2 {
 }
 .banner .banner-text .banner-text-content h2 {
   font-size: 1.3rem;
+  font-weight: normal;
 }
 @media (max-width: 768px) {
   .banner .banner-text .banner-text-content h2 {
     font-size: 1.2rem;
+    font-weight: normal;
   }
 }
 .banner .banner-text .banner-text-content p {
-  font-weight: bold;
   font-size: 1.1rem;
+  font-weight: bold;
 }
 @media (max-width: 768px) {
   .banner .banner-text .banner-text-content p {
     font-size: 0.9rem;
+    font-weight: normal;
   }
 }
 .banner .banner-text button {
@@ -52,8 +56,8 @@ h2 {
   background: linear-gradient(90deg, rgb(153, 4, 4) 0%, rgb(182, 35, 35) 44%, rgb(198, 26, 26) 100%);
   max-width: 260px;
   height: 50px;
-  font-weight: bold;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 .banner .banner-text button:hover {
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.37);
@@ -115,6 +119,7 @@ nav .navbar-nav .nav-link {
   color: rgb(201, 7, 7);
   text-transform: uppercase;
   font-size: 0.7rem;
+  font-weight: normal;
 }
 nav .navbar-nav .nav-link:hover {
   color: rgb(139, 12, 12);
@@ -147,7 +152,6 @@ nav .navbar-nav .navbar-rigth #english {
 
 #services {
   width: 60%;
-  margin: auto;
   margin-top: 60px;
   background-color: rgb(247, 247, 247);
   text-align: center;
@@ -169,6 +173,7 @@ nav .navbar-nav .navbar-rigth #english {
 #services p {
   width: 97%;
   font-size: 1.1rem;
+  font-weight: normal;
 }
 #services .services-img-content {
   display: flex;
@@ -200,9 +205,9 @@ nav .navbar-nav .navbar-rigth #english {
 #services button {
   margin-top: 50px;
   color: rgb(201, 7, 7);
-  font-weight: bold;
   border: none;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 #services button:hover {
   background-color: rgb(247, 247, 247);
@@ -211,8 +216,8 @@ nav .navbar-nav .navbar-rigth #english {
 
 #products {
   width: 60%;
-  margin: auto;
   margin-top: 60px;
+  background-color: white;
   text-align: center;
   padding: 80px 80px;
 }
@@ -231,15 +236,6 @@ nav .navbar-nav .navbar-rigth #english {
   margin-top: 30px;
   text-align: center;
 }
-#products .grid-products a {
-  text-decoration: none;
-  color: rgb(201, 7, 7);
-  font-weight: bold;
-}
-#products .grid-products a:hover {
-  color: rgb(139, 12, 12);
-  text-decoration: underline;
-}
 @media (max-width: 1300px) {
   #products .grid-products {
     grid-template-columns: repeat(2, 1fr);
@@ -249,6 +245,15 @@ nav .navbar-nav .navbar-rigth #english {
   #products .grid-products {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+#products .grid-products a {
+  text-decoration: none;
+  color: rgb(201, 7, 7);
+  font-weight: bold;
+}
+#products .grid-products a:hover {
+  color: rgb(139, 12, 12);
+  text-decoration: underline;
 }
 
 footer {
