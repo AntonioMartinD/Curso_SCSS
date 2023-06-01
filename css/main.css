@@ -95,7 +95,7 @@ nav {
   margin-top: 3px;
 }
 nav .navbar-icon {
-  color: rgb(165, 8, 8);
+  color: rgb(201, 7, 7);
   font-weight: bold;
 }
 nav .collapse {
@@ -265,7 +265,7 @@ footer a {
   color: white;
 }
 footer .menus a:hover {
-  color: rgb(173, 7, 7);
+  color: rgb(139, 12, 12);
   text-decoration: underline;
 }
 
