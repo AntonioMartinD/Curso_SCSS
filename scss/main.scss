@@ -5,6 +5,20 @@ $gray-container: rgb(247, 247, 247);
 $content-width: 60%;
 $button-font-size: 1.2rem;
 
+@function add-width($percentage) {
+    @return $content-width + $percentage;
+}
+
+@function get-hover-color($color) {
+    @if (lightness($color) > 50) {
+        @return darken($color, 30%);
+    }
+
+    @else {
+        @return lighten($color, 10%);
+    }
+}
+
 body {
     background-color: white;
 }
@@ -24,7 +38,7 @@ h2 {
     background-color: white;
 
     @media (max-width:1300px) {
-        width: 80%;
+        width: add-width(20%);
     }
 
     .banner-text {
@@ -67,6 +81,7 @@ h2 {
 
             &:hover {
                 box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.37);
+                
             }
 
             @media (max-width: 768px) {
@@ -111,6 +126,11 @@ nav {
     .navbar-icon {
         color: $main-red;
         font-weight: bold;
+
+        &:hover{
+            color: get-hover-color($main-red);
+            box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.37);
+        }
     }
 
     .collapse {
@@ -176,7 +196,7 @@ nav {
     transform: skewY(-2deg);
 
     @media (max-width:1300px) {
-        width: 90%;
+        width: add-width(30%);
     }
 
     .services-content {
@@ -197,10 +217,11 @@ nav {
     .services-img-content {
         display: flex;
         justify-content: space-between;
+
         @media (max-width: 968px) {
             flex-direction: column;
-            
-            
+
+
         }
 
         .services-title {
@@ -217,9 +238,10 @@ nav {
             }
         }
 
-        #services-standard{
+        #services-standard {
             @media (max-width: 768px) {
-                display: none;;
+                display: none;
+                ;
             }
         }
     }
@@ -298,7 +320,8 @@ footer {
 
         a {
             &:hover {
-                color: rgb(167, 166, 166);
+                /*color: rgb(167, 166, 166);*/
+                color: get-hover-color(white);
                 text-decoration: underline;
             }
         }
