@@ -1,8 +1,9 @@
 @use 'global' as *;
 
-h1,
-h2 {
-    text-transform: uppercase;
+@each $selector in $uppercase-selectors {
+    #{$selector} {
+        text-transform: uppercase;
+    }
 }
 
 .banner {
@@ -56,7 +57,7 @@ h2 {
             @include text-style($button-font-size, bold);
 
             &:hover {
-               @extend %shadow;
+                @extend %shadow;
 
             }
 
@@ -70,17 +71,16 @@ h2 {
     .banner-img {
         margin-left: auto;
 
-        #banner-movil {
-            display: none;
+        @each $resolution,
+        $selector in $banner-images {
+            #{$selector} {
+                @media (min-width: 768px) {
+                    display: #{if($resolution == 'standard', 'block', 'none')};
+                }
 
-            @media (max-width: 768px) {
-                display: block;
-            }
-        }
-
-        #banner-standard {
-            @media (max-width: 768px) {
-                display: none;
+                @media (max-width: 768px) {
+                    display: #{if($resolution == 'movil', 'block', 'none')};
+                }
             }
         }
     }
@@ -241,7 +241,7 @@ nav {
 
     .grid-products {
 
-       @include grid-3-columns();
+        @include grid-3-columns();
 
         a {
             text-decoration: none;

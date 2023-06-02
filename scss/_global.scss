@@ -4,6 +4,12 @@ $red-gradient: linear-gradient(90deg, rgba(153, 4, 4, 1) 0%, rgba(182, 35, 35, 1
 $gray-container: rgb(247, 247, 247);
 $content-width: 60%;
 $button-font-size: 1.2rem;
+$uppercase-selectors: h1, h2;
+$banner-images: (
+  movil: "#banner-movil",
+  standard: "#banner-standard"
+);
+
 
 @function add-width($percentage) {
     @return $content-width + $percentage;
